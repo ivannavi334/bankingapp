@@ -12,8 +12,7 @@ export default async function DashboardLayout({
   const { userId } = await auth()
   if (!userId) redirect('/sign-in')
 
-  const item = await getPlaidItem(userId)
-  const isConnectPage = false // connect page handles its own redirect
+  await getPlaidItem(userId)
 
   return (
     <div className="flex h-screen bg-gray-50">
