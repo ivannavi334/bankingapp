@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { BarChart3, Shield, Zap } from 'lucide-react'
 
 const FEATURES = [
@@ -28,12 +28,12 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl flex h-16 items-center justify-between px-4">
           <span className="font-bold text-xl text-blue-600">FinanceFlow</span>
           <div className="flex gap-3">
-            <Button variant="ghost" asChild>
-              <Link href="/sign-in">Sign In</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/sign-up">Get Started</Link>
-            </Button>
+            <Link href="/sign-in" className={buttonVariants({ variant: 'ghost' })}>
+              Sign In
+            </Link>
+            <Link href="/sign-up" className={buttonVariants()}>
+              Get Started
+            </Link>
           </div>
         </div>
       </header>
@@ -49,12 +49,12 @@ export default function LandingPage() {
           balances, and financial health — all in one dashboard.
         </p>
         <div className="mt-10 flex gap-4 justify-center">
-          <Button size="lg" asChild>
-            <Link href="/sign-up">Get Started Free</Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="/sign-in">Sign In</Link>
-          </Button>
+          <Link href="/sign-up" className={buttonVariants({ size: 'lg' })}>
+            Get Started Free
+          </Link>
+          <Link href="/sign-in" className={buttonVariants({ size: 'lg', variant: 'outline' })}>
+            Sign In
+          </Link>
         </div>
       </section>
 
