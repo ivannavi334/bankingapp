@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { formatCurrency, formatDate, groupByCategory, getMonthlyTotals } from '../utils'
+import { cn, formatCurrency, formatDate, groupByCategory, getMonthlyTotals, getTopMerchants } from '../utils'
 
 describe('formatCurrency', () => {
   it('formats positive USD amount', () => {
@@ -64,5 +64,46 @@ describe('getMonthlyTotals', () => {
 
     const result = getMonthlyTotals(transactions)
     expect(result[0].amount).toBe(100)
+  })
+})
+
+describe('cn', () => {
+  it('merges class names', () => {
+    expect(cn('a', 'b')).toBe('a b')
+  })
+
+  it('resolves Tailwind conflicts (last wins)', () => {
+    expect(cn('p-4', 'p-2')).toBe('p-2')
+  })
+
+  it('handles conditional classes', () => {
+    expect(cn('base', false && 'ignored', 'added')).toBe('base added')
+  })
+})
+
+describe('getTopMerchants', () => {
+  it('returns top N merchants sorted by amount', () => {
+    const transactions = [
+      { merchant_name: 'Amazon', name: 'Amazon', amount: 100 },
+      { merchant_name: 'Starbucks', name: 'Starbucks', amount: 50 },
+      { merchant_name: 'Amazon', name: 'Amazon', amount: 200 },
+    ] as any[]
+
+    const result = getTopMerchants(transactions, 2)
+    expect(result).toHaveLength(2)
+    expect(result[0].name).toBe('Amazon')
+    expect(result[0].amount).toBe(300)
+    expect(result[0].count).toBe(2)
+  })
+
+  it('skips negative amounts', () => {
+    const transactions = [
+      { merchant_name: 'Refund', name: 'Refund', amount: -100 },
+      { merchant_name: 'Shop', name: 'Shop', amount: 50 },
+    ] as any[]
+
+    const result = getTopMerchants(transactions)
+    expect(result).toHaveLength(1)
+    expect(result[0].name).toBe('Shop')
   })
 })
