@@ -8,6 +8,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![codecov](https://codecov.io/gh/ivannavi334/bankingapp/graph/badge.svg)](https://codecov.io/gh/ivannavi334/bankingapp)
 
 [Live Demo](https://banking-pi-blond.vercel.app) · [Report Bug](https://github.com/ivannavi334/bankingapp/issues/new?template=bug_report.md) · [Request Feature](https://github.com/ivannavi334/bankingapp/issues/new?template=feature_request.md)
 
