@@ -19,19 +19,9 @@ export default function Icon() {
           gap: 4,
         }}
       >
-        {/* coin stack: 3 horizontal bars */}
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            style={{
-              background: 'white',
-              width: 18,
-              height: 4,
-              borderRadius: 2,
-              opacity: 1 - i * 0.2,
-            }}
-          />
-        ))}
+        <div style={{ background: 'white', width: 18, height: 4, borderRadius: 2 }} />
+        <div style={{ background: 'white', width: 18, height: 4, borderRadius: 2, opacity: 0.8 }} />
+        <div style={{ background: 'white', width: 18, height: 4, borderRadius: 2, opacity: 0.6 }} />
       </div>
     ),
     { ...size },
