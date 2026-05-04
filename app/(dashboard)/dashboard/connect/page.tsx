@@ -23,13 +23,26 @@ export default async function ConnectPage() {
           </div>
           <CardTitle className="text-2xl">Connect Your Bank</CardTitle>
           <CardDescription>
-            Securely link your bank account to get started. Use{' '}
-            <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">user_good</code> /{' '}
-            <code className="rounded bg-gray-100 px-1 py-0.5 text-xs">pass_good</code> for the demo.
+            Securely link your bank account to get started.
           </CardDescription>
         </CardHeader>
-        <CardContent className="flex justify-center">
-          <PlaidLinkButton linkToken={linkToken} />
+        <CardContent className="space-y-4">
+          <div className="rounded-lg border border-blue-100 bg-blue-50 p-4 text-sm text-blue-900">
+            <p className="mb-2 font-semibold">Demo mode instructions:</p>
+            <ol className="list-decimal space-y-1 pl-4">
+              <li>Enter any phone number</li>
+              <li>
+                Verification code:{' '}
+                <code className="rounded bg-white px-1.5 py-0.5 font-mono font-bold">123456</code>
+              </li>
+              <li>Select any bank</li>
+              <li>Select any cards</li>
+              <li>Enter any phone number again</li>
+            </ol>
+          </div>
+          <div className="flex justify-center">
+            <PlaidLinkButton linkToken={linkToken} />
+          </div>
         </CardContent>
       </Card>
     </div>
