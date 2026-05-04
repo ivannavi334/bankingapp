@@ -8,9 +8,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: true,
+    reporters: ['default', 'junit'],
+    outputFile: { junit: './junit.xml' },
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'lcov'],
+      reporter: ['text', 'lcov', 'json-summary'],
       exclude: [
         'node_modules/**',
         '.next/**',
