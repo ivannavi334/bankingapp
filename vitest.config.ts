@@ -8,6 +8,18 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'lcov'],
+      exclude: [
+        'node_modules/**',
+        '.next/**',
+        'drizzle/**',
+        '**/*.config.*',
+        '**/*.d.ts',
+        'app/layout.tsx',
+      ],
+    },
   },
   resolve: {
     alias: { '@': resolve(process.cwd(), '.') },
